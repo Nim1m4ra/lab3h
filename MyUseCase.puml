@@ -1,0 +1,52 @@
+@startuml
+left to right direction
+
+actor Пользователь
+actor Курьер
+actor Администратор
+
+package "Функционал Пользователя" {
+  (Авторизация Пользователя) as auth_user
+  (Оформление заказа на доставку) as user_order
+  (Просмотр своих заказов) as user_view
+
+
+  auth_user --> user_order
+  auth_user --> user_view
+
+}
+
+package "Функционал Курьера" {
+  (Авторизация Курьера) as auth_courier
+  (Просмотр доступных заказов) as view_available
+  (Принять заказ) as accept_order
+  (Просмотр моих заказов) as view_my_orders
+  (Отменить заказ) as cancel_order_courier
+  (Изменить статус на "доставлен") as deliver_status
+
+  auth_courier --> view_available
+  auth_courier --> view_my_orders
+  auth_courier --> deliver_status
+  view_available .> accept_order : extend
+  view_my_orders .> cancel_order_courier : extend
+}
+
+package "Функционал Администратора" {
+  (Авторизация Администратора) as auth_admin
+  (Просмотр всех заказов) as admin_view
+  (Управление курьерами) as admin_manage
+  (Добавить курьера) as add_courier
+  (Удалить курьера) as remove_courier
+
+  auth_admin --> admin_view
+  auth_admin --> admin_manage
+  admin_manage --> add_courier
+  admin_manage --> remove_courier
+}
+
+' Прямые связи от актеров к авторизации
+Пользователь --> auth_user
+Курьер --> auth_courier
+Администратор --> auth_admin
+
+@enduml
