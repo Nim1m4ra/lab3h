@@ -27,8 +27,8 @@ package "Функционал Курьера" {
   auth_courier --> view_available
   auth_courier --> view_my_orders
   auth_courier --> deliver_status
-  view_available .> accept_order : extend
-  view_my_orders .> cancel_order_courier : extend
+  view_available .> accept_order : "extend"
+  view_my_orders .> cancel_order_courier : "extend"
 }
 
 package "Функционал Администратора" {
