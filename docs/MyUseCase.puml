@@ -11,8 +11,8 @@ package "Функционал Пользователя" {
   (Просмотр своих заказов) as user_view
 
 
-  auth_user --> user_order
-  auth_user --> user_view
+  auth_user -- user_order
+  auth_user -- user_view
 
 }
 
@@ -45,7 +45,7 @@ package "Функционал Администратора" {
 }
 
 ' Прямые связи от актеров к авторизации
-Пользователь --> auth_user
+Пользователь -- auth_user
 Курьер --> auth_courier
 Администратор --> auth_admin
 

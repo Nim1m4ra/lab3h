@@ -4,16 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6712e476-69e3-451a-83a2-f27fb8333e92" name="Changes" comment="калькулятор">
-      <change afterPath="$PROJECT_DIR$/docs/img.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/img_1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/img_2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/img_3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/docs/img_4.png" afterDir="false" />
+    <list default="true" id="6712e476-69e3-451a-83a2-f27fb8333e92" name="Changes" comment="png">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BlockDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/BlockDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MyUseCase.puml" beforeDir="false" afterPath="$PROJECT_DIR$/docs/MyUseCase.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/README.md" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,6 +61,7 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\))\PycharmProjects\PythonProject1\docs\png" />
       <recent name="C:\Users\))\PycharmProjects\PythonProject1\docs" />
     </key>
   </component>
@@ -127,7 +120,31 @@
       <option name="project" value="LOCAL" />
       <updated>1761328861487</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="docs">
+      <option name="closed" value="true" />
+      <created>1761577589403</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1761577589403</updated>
+    </task>
+    <task id="LOCAL-00007" summary="docs">
+      <option name="closed" value="true" />
+      <created>1761577645854</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1761577645854</updated>
+    </task>
+    <task id="LOCAL-00008" summary="png">
+      <option name="closed" value="true" />
+      <created>1761577825486</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1761577825486</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -135,6 +152,8 @@
     <MESSAGE value="обновленное описание" />
     <MESSAGE value="ласт юзкейс" />
     <MESSAGE value="калькулятор" />
-    <option name="LAST_COMMIT_MESSAGE" value="калькулятор" />
+    <MESSAGE value="docs" />
+    <MESSAGE value="png" />
+    <option name="LAST_COMMIT_MESSAGE" value="png" />
   </component>
 </project>
