@@ -4,8 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="6712e476-69e3-451a-83a2-f27fb8333e92" name="Changes" comment="png">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="6712e476-69e3-451a-83a2-f27fb8333e92" name="Changes" comment="strelki">
+      <change beforePath="$PROJECT_DIR$/docs/png/img_1.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +144,15 @@
       <option name="project" value="LOCAL" />
       <updated>1761577825486</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="strelki">
+      <option name="closed" value="true" />
+      <created>1761578319706</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1761578319706</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -154,6 +162,7 @@
     <MESSAGE value="калькулятор" />
     <MESSAGE value="docs" />
     <MESSAGE value="png" />
-    <option name="LAST_COMMIT_MESSAGE" value="png" />
+    <MESSAGE value="strelki" />
+    <option name="LAST_COMMIT_MESSAGE" value="strelki" />
   </component>
 </project>
