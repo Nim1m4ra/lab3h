@@ -1,0 +1,130 @@
+@startuml
+' === СТИЛЬ ===
+skinparam monochrome true
+skinparam shadowing false
+skinparam classAttributeIconSize 0
+skinparam nodesep 70
+skinparam ranksep 70
+skinparam dpi 300
+
+title ERD: Система доставки (строго по Use Case)
+
+' === СУЩНОСТИ (только необходимые) ===
+
+entity "Пользователь" as user {
+  * user_id : INT <<PK>>
+  --
+  login : VARCHAR
+  password_hash : VARCHAR
+  name : VARCHAR
+  phone : VARCHAR
+}
+
+entity "Курьер" as courier {
+  * courier_id : INT <<PK>>
+  --
+  login : VARCHAR
+  password_hash : VARCHAR
+  name : VARCHAR
+  phone : VARCHAR
+  status : ENUM('active', 'inactive') <<default: active>>
+}
+
+entity "Администратор" as admin {
+  * admin_id : INT <<PK>>
+  --
+  login : VARCHAR
+  password_hash : VARCHAR
+  name : VARCHAR
+}
+
+entity "Заказ" as ord {
+  * order_id : INT <<PK>>
+  --
+  user_id : INT <<FK>>
+  courier_id : INT <<FK>> <<nullable>>
+  status : ENUM('new', 'accepted', 'in_delivery', 'delivered', 'cancelled')
+  created_at : DATETIME
+  delivery_address : TEXT
+  total_amount : DECIMAL(10,2)
+}
+
+' === ПРЕДСТАВЛЕНИЯ (Views) — строго по Use Case ===
+
+entity "Доступные заказы\n(для курьера)" as view_available <<view>> {
+  -- SELECT * FROM Заказ WHERE status = 'new'
+}
+
+entity "Мои заказы\n(пользователь)" as view_user_orders <<view>> {
+  -- SELECT * FROM Заказ WHERE user_id = ?
+}
+
+entity "Мои заказы\n(курьер)" as view_courier_orders <<view>> {
+  -- SELECT * FROM Заказ WHERE courier_id = ? AND status IN ('accepted', 'in_delivery')
+}
+
+entity "Все заказы\n(админ)" as view_all_orders <<view>> {
+  -- SELECT * FROM Заказ
+}
+
+' === СВЯЗИ (строго по Use Case) ===
+
+' Пользователь → заказы
+user ||--o{ ord : "оформляет"
+
+' Курьер → заказы (опционально)
+courier ||--o{ ord : "доставляет\n(nullable)"
+
+' Администратор → курьеры (управление)
+admin ||--o{ courier : "управляет\n(добавляет/удаляет)"
+
+' === Связи Представлений ===
+
+view_user_orders }o--|| user : "фильтр по user_id"
+view_courier_orders }o--|| courier : "фильтр по courier_id"
+view_all_orders }o--|| ord : "все"
+view_available }o--|| ord : "status = 'new'"
+
+' === ПРИМЕЧАНИЯ — ОПЕРАЦИИ ПО USE CASE ===
+
+note top of ord
+  **Статусы и операции (по Use Case):**
+  • new → Просмотр доступных заказов
+  • accepted → Принять заказ (курьер)
+  • in_delivery → Мои заказы (курьер)
+  • delivered → Изменить статус "доставлен"
+  • cancelled → Отменить заказ (курьер)
+end note
+
+note right of view_available
+  Use Case: **Просмотр доступных заказов**
+  → SELECT * FROM Заказ WHERE status = 'new'
+end note
+
+note right of view_user_orders
+  Use Case: **Просмотр своих заказов**
+  → SELECT * FROM Заказ WHERE user_id = ?
+end note
+
+note right of view_courier_orders
+  Use Case: **Просмотр моих заказов (курьер)**
+  → SELECT * FROM Заказ WHERE courier_id = ?
+  AND status IN ('accepted', 'in_delivery')
+end note
+
+note right of view_all_orders
+  Use Case: **Просмотр всех заказов**
+  → SELECT * FROM Заказ
+end note
+
+note bottom of ord
+  **Операции (по Use Case):**
+  • Принять заказ:
+    UPDATE Заказ SET courier_id = ?, status = 'accepted'
+  • Отменить заказ (курьер):
+    UPDATE Заказ SET status = 'cancelled'
+  • Доставлен:
+    UPDATE Заказ SET status = 'delivered'
+end note
+
+@enduml
