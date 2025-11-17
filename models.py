@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 import sqlite3
 from typing import List, Optional
-from datetime import datetime  # <-- ДОБАВЛЕНО ДЛЯ ИСПРАВЛЕНИЯ ОШИБКИ
+from datetime import datetime
 
 @dataclass
 class User:
