@@ -61,6 +61,13 @@
 - Реляционная база данных (SQLite)
 - Хранение информации о заказах, клиентах и курьерах
 
+Сущность | Поля  
+---|---  
+ПОЛЬЗОВАТЕЛЬ | id, name, login, phone  
+КУРЬЕР | id, name, login, phone  
+АДМИНИСТРАТОР | id, name, login  
+ЗАКАЗ | id, user_id, courier_id, status, created_at, delivery_address, total_amount
+
 ## 6. ER-диаграмма базы данных
-![img.png](png/imgER.png)
+![img_1.png](png/img_1.png)
 
